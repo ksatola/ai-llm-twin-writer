@@ -1,0 +1,37 @@
+{
+    "name": "${localEnv:ENV_NAME}",
+    "build": {
+        // Define Dockerfile arguments and folder
+        "dockerfile": "Dockerfile",
+        "args": {"ENV_NAME": "${localEnv:ENV_NAME}",
+                 "PYTHON_VER": "${localEnv:PYTHON_VER}"}, 
+        "context": "."
+    },
+    "customizations": {
+        "settings": {
+            "python.defaultInterpreterPath": "/opt/conda/envs/${localEnv:ENV_NAME}/bin/python"
+        },
+        "vscode": {
+            "extensions": [
+                "quarto.quarto",
+                "ms-azuretools.vscode-docker",
+                "ms-python.python",
+                "ms-vscode-remote.remote-containers",
+                "yzhang.markdown-all-in-one",
+                "redhat.vscode-yaml",
+                "ms-toolsai.jupyter"
+            ]
+        }
+    },
+    // Mount an external local source folder to the container's target folder
+    "mounts": [
+            //"source=${localWorkspaceFolder}/{localEnv:CSV_PATH},target=/home/csv,type=bind,consistency=cache"
+            "source=d://dev/data,target=/home/csv,type=bind,consistency=cache"
+    ],
+    "remoteEnv": {
+        "MY_VAR": "${localEnv:MY_VAR}"
+    },
+    // Load variables
+    "runArgs": ["--env-file",".devcontainer/devcontainer.env"],
+    "postCreateCommand": "python3 tests/test1.py"
+}

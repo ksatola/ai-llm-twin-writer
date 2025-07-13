@@ -1,0 +1,4 @@
+#wheel==0.40.0
+pandas
+#plotly
+#plotly-express
