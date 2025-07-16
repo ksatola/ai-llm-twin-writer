@@ -9,10 +9,10 @@ person by incorporating its style, voice, and personality into an LLM.
 ### Solution ideation (iterative process)
  
 #### What
-      1. Business need or problem to be solved definition/understanding in business terms
-      2. MVP first iteration of features scope (functional and non-functional requirements)
+    1. Business need or problem to be solved definition/understanding in business terms
+    2. MVP first iteration of features scope (functional and non-functional requirements)
 
-**WHAT:** TW will be used to write content (posts, articles) to be posted in social media portals, like LinkedIn, Medium or X. It will help automate the content creation process.
+TW will be used to write content (posts, articles) to be posted in social media portals, like LinkedIn, Medium or X. It will help automate the content creation process.
 
 TW MVP features:
 - Collect data from LinkedIn, Medium, Substack, and GitHub profiles
@@ -28,18 +28,16 @@ TW MVP features:
 
 
 #### Why
-      1. Feasibility study (alignment to business objectives, data/skills availability, cost/timeline, ROI and value definition, data and methods legal/requirements/ethics compliance, solution explainability)
+    Feasibility study (alignment to business objectives, data/skills availability, cost/timeline, ROI and value definition, data and methods legal/requirements/ethics compliance, solution explainability)
 
-**WHY:** TW will help to create my brand, automate the writing process, help brainstorm new creative ideas. We will control TW (comparing to any other general-purpose tool, like ChatGPT or Gemini) by controlling what data we collect, how we preprocess the data, how we feed the data into the LLM, how we chain multiple prompts for the desired results, and how we evaluate the generated content.
+TW will help to create my brand, automate the writing process, help brainstorm new creative ideas. We will control TW (comparing to any other general-purpose tool, like ChatGPT or Gemini) by controlling what data we collect, how we preprocess the data, how we feed the data into the LLM, how we chain multiple prompts for the desired results, and how we evaluate the generated content.
 
 
 #### How
-      1. Problem translation from business to AI domain
-      2. Alignment with the enterprise architecture or existing solutions for reausability, consistency and compliance with the entire AI portfolio of solutions (build vs. buy vs. reuse) and other supporting solutions (like identity and access management)
-      3. Data (origin, rights to use, bias/ethics, ownership)
-      4. Cost of the solution estimation (potential need to return to the feasibility study)
-
-**HOW:** XXXXXX
+    1. Problem translation from business to AI domain
+    2. Alignment with the enterprise architecture or existing solutions for reausability, consistency and compliance with the entire AI portfolio of solutions (build vs. buy vs. reuse) and other supporting solutions (like identity and access management)
+    3. Data (origin, rights to use, bias/ethics, ownership)
+    4. Cost of the solution estimation (potential need to return to the feasibility study)
 
 TW architecture will be based on FTI pattern with the scope of:
 - Ingesting, cleaning, and validating fresh data
@@ -55,6 +53,8 @@ Following the [FTI pattern](https://medium.com/decodingml/building-ml-systems-th
 - Feature training 
 - Model training
 - Inference (model serving)
+
+![alt text](/images/image.png)
 
 
 ### Data
