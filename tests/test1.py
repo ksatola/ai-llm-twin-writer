@@ -1,4 +1,4 @@
-import pandas as pd
+#import pandas as pd
 #import plotly as py
 #import plotly.express as px
 
@@ -15,4 +15,8 @@ print("Hello World!")
 
 with open("/home/csv/test.txt") as f: # The with keyword automatically closes the file when you are done
     print(f.read())
+
+
+# CMD
+#pyenv versions
     
