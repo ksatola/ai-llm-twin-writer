@@ -3,25 +3,35 @@
     "build": {
         // Define Dockerfile arguments and folder
         "dockerfile": "Dockerfile",
-        "args": {"ENV_NAME": "${localEnv:ENV_NAME}",
-                 "PYTHON_VER": "${localEnv:PYTHON_VER}"}, 
+        //"args": {"ENV_NAME": "${localEnv:ENV_NAME}",
+        //         "PYTHON_VER": "${localEnv:PYTHON_VER}"}, 
         "context": "."
     },
     "customizations": {
-        "settings": {
-            "python.defaultInterpreterPath": "/opt/conda/envs/${localEnv:ENV_NAME}/bin/python"
-        },
+        //"settings": {
+            //"python.defaultInterpreterPath": "/opt/conda/envs/${localEnv:ENV_NAME}/bin/python"
+        //},
         "vscode": {
             "extensions": [
-                "quarto.quarto",
-                "ms-azuretools.vscode-docker",
-                "ms-python.python",
-                "ms-vscode-remote.remote-containers",
-                "yzhang.markdown-all-in-one",
-                "redhat.vscode-yaml",
-                "ms-toolsai.jupyter"
+                //"quarto.quarto",
+                //"ms-azuretools.vscode-docker",
+                //"ms-python.python",
+                //"ms-vscode-remote.remote-containers",
+                //"yzhang.markdown-all-in-one",
+                //"redhat.vscode-yaml",
+                //"ms-toolsai.jupyter"
+                "mongodb.mongodb-vscode",
+                "github.copilot",
+                "github.copilot-chat",
+                "ms-python.vscode-pylance",
+                "ms-python.debugpy"
             ]
         }
+    },
+    // Allow the devcontainer to run host docker commands, see https://github.com/devcontainers/templates/tree/main/src/docker-outside-of-docker
+    "features": {
+        "ghcr.io/devcontainers/features/docker-outside-of-docker:1": {},
+        "github-cli": "latest"
     },
     // Mount an external local source folder to the container's target folder
     "mounts": [
@@ -33,5 +43,7 @@
     },
     // Load variables
     "runArgs": ["--env-file",".devcontainer/devcontainer.env"],
-    "postCreateCommand": "python3 tests/test1.py"
+    //"postCreateCommand": "python3 tests/test1.py"
+    "postCreateCommand": "bash ./.devcontainer/post-install.sh"
+    //"remoteUser": "vscode"
 }
