@@ -19,4 +19,3 @@ with open("/home/csv/test.txt") as f: # The with keyword automatically closes th
 
 # CMD
 #pyenv versions
-    
