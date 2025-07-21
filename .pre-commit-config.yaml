@@ -1,22 +1,37 @@
 # https://pre-commit.com/
 # https://stefaniemolin.com/articles/devx/pre-commit/setup-guide/
 # pre-commit uninstall -t pre-commit -t pre-merge-commit -t pre-push -t prepare-commit-msg -t commit-msg -t post-commit -t post-checkout -t post-merge -t post-rewrite
+
+
+# general Git Hygiene Hooks
 repos:
   - repo: https://github.com/pre-commit/pre-commit-hooks
     rev: v4.5.0
     hooks:
-      - id: check-toml
-      - id: check-yaml
-      - id: end-of-file-fixer
-      - id: trailing-whitespace
+      - id: check-added-large-files # prevent large files from being added
+      - id: check-toml # check for valid TOML files
+      - id: check-yaml # check for valid YAML files
+      - id: end-of-file-fixer # ensure files end with a newline
+      - id: trailing-whitespace # remove trailing whitespace
 
-  - repo: https://github.com/astral-sh/ruff-pre-commit
+# Python code formatter that enforces PEP 8 style guide
+repos:
+  - repo: https://github.com/psf/black
+    rev: 24.3.0
+    hooks:
+      - id: black
+
+# linter, formatter, and code fixer written in Rust
+  - repo: https://github.com/astral-sh/ruff-pre-commit 
     rev: v0.1.5
     hooks:
       - id: ruff
-        args: [--fix, --exit-non-zero-on-fix, --show-fixes]
+        args: [--exit-non-zero-on-fix, # run ruff with exit code 1 on fixes
+          --show-fixes # show fixes in output
+          ]
       - id: ruff-format
 
+# documentation style and tool for writing docstrings in Python
   - repo: https://github.com/numpy/numpydoc
     rev: v1.6.0
     hooks:
