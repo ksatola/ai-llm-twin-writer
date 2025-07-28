@@ -151,3 +151,8 @@ Actions:
 - Remove LLM image(s) from Amazon Elastic Container Registry (ECR): `https://eu-central-1.console.aws.amazon.com/ecr/home?region=eu-central-1`
 - Stop any local services: `local-docker-infrastructure-down`
 
+
+## Deployment Architecture
+
+![alt text](/images/ai_llm_deployment.png)
+
