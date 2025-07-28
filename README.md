@@ -29,8 +29,31 @@ Source:
 
 Actions:
 - `poetry poe local-infrastructure-up`
-- Drop MongoDB twin db if exists
+- Drop MongoDB twin db, if exists
 - `poetry poe run-digital-data-etl`
 - Import from local json, if etl problems: `poetry poe run-import-data-warehouse-from-json`
 - ZenML: http://127.0.0.1:8237/pipelines/digital_data_etl
 - MongoDB: https://cloud.mongodb.com/v2/6878f520458a0322900a02b4#/clusters/detail/Cluster0
+
+
+## Feature Pipeline
+
+![alt text](/images/ai_llm_feature_pipeline.png)
+
+Source: 
+- Data input: `configs/end_to_end_data.yaml`
+- Raw data in MongoDB (json formatted): `data/artifacts/raw_documents.json`
+
+Actions:
+- Delete existing Qdrant collections, if exist
+- `poetry poe run-feature-engineering-pipeline`
+- Qdrant: https://cf1dcd5c-d0a7-44a1-a5d1-54cbdbbf0f2e.eu-central-1-0.aws.cloud.qdrant.io:6333/dashboard#/collections
+   - GET collections
+   - POST collections/embedded_articles/points/search
+      {
+         "vector": [],
+         "limit": 4,
+         "with_payload": true
+      }
+      
+
