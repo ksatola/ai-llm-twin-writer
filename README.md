@@ -36,24 +36,27 @@ Actions:
 - MongoDB: https://cloud.mongodb.com/v2/6878f520458a0322900a02b4#/clusters/detail/Cluster0
 
 
-## Feature Pipeline
+## RAG Feature Pipeline
 
 ![alt text](/images/ai_llm_feature_pipeline.png)
 
 Source: 
-- Data input: `configs/end_to_end_data.yaml`
-- Raw data in MongoDB (json formatted): `data/artifacts/raw_documents.json`
+- Cleaned data for fine-tuning (json formatted): `data/artifacts/cleaned_documents.json`
 
 Actions:
 - Delete existing Qdrant collections, if exist
 - `poetry poe run-feature-engineering-pipeline`
 - Qdrant: https://cf1dcd5c-d0a7-44a1-a5d1-54cbdbbf0f2e.eu-central-1-0.aws.cloud.qdrant.io:6333/dashboard#/collections
-   - GET collections
-   - POST collections/embedded_articles/points/search
+   - ```GET collections```
+   - ```POST collections/embedded_articles/points/search
       {
          "vector": [],
          "limit": 4,
          "with_payload": true
-      }
+      }```
       
+### Retrieval-Augmented Generation (RAG)
 
+
+### Embeddings
+Embeddings are dense vector representations of data (words, sentences, documents, etc.) that capture their semantic meaning in semantic space. In the context of LLMs, embeddings are central to how these models understand, compare, and relate text.
