@@ -118,8 +118,16 @@ There are different evaluation methods:
 
 Source: 
 - LangChain MultiQueryRetriever: https://python.langchain.com/docs/how_to/MultiQueryRetriever/
+- Create IAM user: `llm_engineering/infrastructure/aws/roles/create_sagemaker_role.py`
+- Create IAM role: `llm_engineering/infrastructure/aws/roles/create_execution_role.py`
+- Deploy the LLM Twin model to AWS SageMaker: `llm_engineering/infrastructure/aws/deploy/huggingface/run.py`
 
 Actions:
-- XXXXXXXX
+- Configure SageMaker local environment: `poetry install --with aws`
+- Configure SageMaker: 
+   - Updated access keys: `poetry poe create-sagemaker-role`
+   - Get ARN (Amazon Resorce Name): `poetry poe create-sagemaker-execution-role`
+   - Configure AWS Command Line Interface (CLI): `aws configure`
+   - Deploy the LLM Twin model to AWS SageMaker: `poetry poe deploy-inference-endpoint`
 
 
