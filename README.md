@@ -9,11 +9,11 @@ person by incorporating its style, voice, and personality into an LLM.
 
 
 ## Project Feasibility Study
-Before start building an AI/ML solution, there are a few questions to be answered related to alignment with business priorities, data, resources/budget and skills availability, development and runtime cost, development time and return of investment (ROI). These questions are gathered in the [Project Feasibility Study - XXXXXXXXXXX](XXXXXXX).
+Before building an AI/ML solution can begin, there are a few questions that need to be answered regarding alignment with business priorities, data, resource/budget and skills availability, development and runtime costs, development time, and return on investment (ROI). These questions are gathered in the [Project Feasibility Study](https://github.com/ksatola/ai-llm-reference-architecture/blob/main/Feasibility_Study.md).
 
 
 ## Generic AI/ML/LLM System Architecture
-The general system architecture is based on the [FTI (Feature-Training-Inference) pattern - XXXXXXXXX](XXXXXXXXXXX).
+The general system architecture is based on the [FTI (Feature-Training-Inference) pattern](https://github.com/ksatola/ai-llm-reference-architecture/blob/main/FTI_Architecture.md).
 
 
 ![alt text](/images/ai_llm_system.png)
@@ -28,6 +28,7 @@ Source:
 - Raw data in MongoDB (json formatted): `data/artifacts/raw_documents.json`
 
 Actions:
+- Install dependencies: `poetry install –-without aws`
 - Run Docker Compose to setup local environment: `poetry poe local-infrastructure-up`
 - Drop MongoDB twin db, if exists
 - Crawl data from the Internet: `poetry poe run-digital-data-etl`
@@ -149,10 +150,31 @@ Actions:
 - Detele SageMaker inference endpoint: `poetry poe delete-inference-endpoint`
 - Confirm: `https://eu-central-1.console.aws.amazon.com/sagemaker/home?region=eu-central-1#/endpoints`
 - Remove LLM image(s) from Amazon Elastic Container Registry (ECR): `https://eu-central-1.console.aws.amazon.com/ecr/home?region=eu-central-1`
-- Stop any local services: `local-docker-infrastructure-down`
+- Stop any local services: `poetry poe local-docker-infrastructure-down`
 
 
 ## Deployment Architecture
 
 ![alt text](/images/ai_llm_deployment.png)
+
+
+## Technology Stack
+Local Computer (Python 3.11.8)
+- XCode + Devcontainers
+- Github CLI (Command Line Interface)
+- AWS CLI
+- Docker, Docker Compose
+- Poetry (dependency and virtual environment management) with Poe the Poet task execution tool
+
+Data Collection Pipeline
+- Selenium (data collection and web automation)
+- Mongo DB (NoSQL database)
+- ZenML (workflows orchestration, artifacts, and metadata)
+
+Feature Pipeline
+- Qdrant (vector database)
+
+Training Pipeline
+- Hugging Face (model registry)
+- Unsloth (LLM fine-tunning)
 
