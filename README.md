@@ -80,14 +80,14 @@ Embeddings are dense vector representations of data (words, sentences, documents
 ![alt text](/images/ai_llm_training_pipeline.png)
 
 Source: 
-- Instruction dataset: `data/artifacts/instruct_datasets.json`
+- Instruction dataset: 
+   - json: `data/artifacts/instruct_datasets.json`
+   - Hugging Face: https://huggingface.co/datasets/mlabonne/llmtwin
 - Preference dataset:
    - json: `data/artifacts/preference_datasets.json`
    - Hugging Face: https://huggingface.co/datasets/mlabonne/llmtwin-dpo
 - Fine-tuned LLM: https://huggingface.co/mlabonne/TwinLlama-3.1-8B-DPO
 
-Actions:
-- XXXXXXXX
 
 ### Fine-tuning
 Fine-tuning (or Supervised Fine-Tuning, SFT) is the process of taking a pretrained model (like GPT, BERT, or LLaMA) and continuing its training on a specific dataset to adapt it to a particular task, domain, or tone. The fine-tuning steps include:
