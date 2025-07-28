@@ -28,16 +28,12 @@ Source:
 - Raw data in MongoDB (json formatted): `data/artifacts/raw_documents.json`
 
 Actions:
-- `poetry poe local-infrastructure-up`
+- Run Docker Compose to setup local environment: `poetry poe local-infrastructure-up`
 - Drop MongoDB twin db, if exists
-- `poetry poe run-digital-data-etl`
-- Import from local json, if etl problems: `poetry poe run-import-data-warehouse-from-json`
+- Crawl data from the Internet: `poetry poe run-digital-data-etl`
+   - Import from local json, if etl problems: `poetry poe run-import-data-warehouse-from-json`
 - ZenML: http://127.0.0.1:8237/pipelines/digital_data_etl
 - MongoDB: https://cloud.mongodb.com/v2/6878f520458a0322900a02b4#/clusters/detail/Cluster0
-- Run e2e data pipeline including instruction dataset creation: `poetry poe run-end-to-end-data-pipeline`
-   - ZenML artifacts: `cd /root/.config/zenml/local_stores/854fba10-cd0b-496f-8937-085173b6d6cb/generate_intruction_dataset/instruct_datasets`
-   - Open VSCode: `code .`
-
 
 
 ## RAG Feature Pipeline
@@ -58,7 +54,11 @@ Actions:
          "limit": 4,
          "with_payload": true
       }
-      
+- Run e2e data pipeline including instruction dataset creation: `poetry poe run-end-to-end-data-pipeline`
+   - ZenML artifacts: `cd /root/.config/zenml/local_stores/854fba10-cd0b-496f-8937-085173b6d6cb/generate_intruction_dataset/instruct_datasets`
+   - Open VSCode: `code .`
+
+
 ### Retrieval-Augmented Generation (RAG)
 RAG refers to a hybrid architecture that:
 1. **Retrieves** relevant documents or chunks from an external knowledge source (like a vector database or document store).
@@ -66,15 +66,16 @@ RAG refers to a hybrid architecture that:
 3. **Generates** a final answer using a generative language model (e.g., OpenAI GPT, Google T5, Meta LLaMA).
 
 RAG is usually used to augment LLMs with: 
-- Capability to perform specific actions (e.g., summarize, reformulate, and extract the injected data),
-- Specific (private) domain knowledge,
-- New facts/data occured/created after the model was trained.
+- Capability to perform specific actions (e.g., summarize, reformulate, and extract the injected data).
+- Specific (private) domain knowledge.
+- New facts/data occured/created after the model was trained (preventing LLM from **hallucinating**).
+
 
 ### Embeddings
 Embeddings are dense vector representations of data (words, sentences, documents, etc.) that capture their semantic meaning in semantic space. In the context of LLMs, embeddings are central to how these models understand, compare, and relate text.
 
 
-## Training Pipeline
+## Training (Fine-tuning) Pipeline
 
 ![alt text](/images/ai_llm_training_pipeline.png)
 
@@ -148,4 +149,5 @@ Actions:
 - Detele SageMaker inference endpoint: `poetry poe delete-inference-endpoint`
 - Confirm: `https://eu-central-1.console.aws.amazon.com/sagemaker/home?region=eu-central-1#/endpoints`
 - Remove LLM image(s) from Amazon Elastic Container Registry (ECR): `https://eu-central-1.console.aws.amazon.com/ecr/home?region=eu-central-1`
+- Stop any local services: `local-docker-infrastructure-down`
 
