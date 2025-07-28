@@ -5,7 +5,6 @@
 
 
 ## AI System Objective
-
 Build an LLM Twin Writer (TW), an AI character that learns to write like a particular
 person by incorporating its style, voice, and personality into an LLM.
 
@@ -15,8 +14,9 @@ Before start building an AI/ML solution, there are a few questions to be answere
 
 
 ## Generic AI/ML/LLM System Architecture
-
 The general system architecture is based on the [FTI (Feature-Training-Inference) model - XXXXXXXXX](XXXXXXXXXXX).
+
+
 ![alt text](/images/ai_llm_system.png)
 
 
