@@ -62,9 +62,9 @@ RAG refers to a hybrid architecture that:
 3. **Generates** a final answer using a generative language model (e.g., OpenAI GPT, Google T5, Meta LLaMA).
 
 RAG is usually used to augment LLMs with: 
-- capability to perform specific actions (e.g., summarize, reformulate, and extract the injected data),
-- specific (private) domain knowledge,
-- new facts/data occured/created after the model was trained.
+- Capability to perform specific actions (e.g., summarize, reformulate, and extract the injected data),
+- Specific (private) domain knowledge,
+- New facts/data occured/created after the model was trained.
 
 ### Embeddings
 Embeddings are dense vector representations of data (words, sentences, documents, etc.) that capture their semantic meaning in semantic space. In the context of LLMs, embeddings are central to how these models understand, compare, and relate text.
@@ -76,13 +76,33 @@ Embeddings are dense vector representations of data (words, sentences, documents
 
 Source: 
 - Instruction dataset: `data/artifacts/instruct_datasets.json`
-- Preference dataset: `data/artifacts/preference_datasets.json`
+- Preference dataset:
+   - json: `data/artifacts/preference_datasets.json`
+   - Hugging Face: https://huggingface.co/datasets/mlabonne/llmtwin-dpo
 - Fine-tuned LLM: https://huggingface.co/mlabonne/TwinLlama-3.1-8B-DPO
 
 Actions:
-- `poetry poe local-infrastructure-up`
-- Drop MongoDB twin db, if exists
-- `poetry poe run-digital-data-etl`
-- Import from local json, if etl problems: `poetry poe run-import-data-warehouse-from-json`
-- ZenML: http://127.0.0.1:8237/pipelines/digital_data_etl
-- MongoDB: https://cloud.mongodb.com/v2/6878f520458a0322900a02b4#/clusters/detail/Cluster0
+- XXXXXXXX
+
+### Fine-tuning
+Fine-tuning (or Supervised Fine-Tuning, SFT) is the process of taking a pretrained model (like GPT, BERT, or LLaMA) and continuing its training on a specific dataset to adapt it to a particular task, domain, or tone. The fine-tuning steps include:
+1. Start with a pretrained LLM (e.g., GPT-3.5, LLaMA-2, Mistral, Falcon, BERT).
+2. Prepare a dataset (instruction-response for instruction-tuned models).
+3. Train on your dataset (update pretrained LLM weights) using cloud-based services like Hugging Face Transformers, OpenAI Fine-tuning API, Google Vertex AI/PaLM or Amazon Bedrock.
+4. Evaluate and deploy (check quality, hallucinations, and alignment with goals).
+
+### Direct Preference Optimization
+Direct Preference Optimization (DPO) is a training technique used to align large language models (LLMs) with human preferences, without the complexity of reinforcement learning (like RLHF, Reinforcement Learning from Human Feedback).
+
+### LLM Evaluation
+Evaluating Large Language Models (LLMs) is a crucial step in understanding how well they perform across various tasks such as text generation, question answering, summarisation, coding, or reasoning. There are multiple evaluation dimensions, depending on the goal:
+- **Accuracy/Factuality**: Is the output correct and grounded in facts?
+- **Relevance/Helpfulness**: Does the response address the user’s input?
+- **Fluency/Grammar**: Is the language smooth, well-structured, and grammatically correct?
+- **Coherence/Logic**: Are the ideas well connected and logically ordered?
+- **Faithfulness**: Is the output consistent with the input context (especially in summarisation)?
+- **Safety/Toxicity**: Is the response free of harmful or biased content?
+- **Bias/Fairness**: Does the model show discriminatory patterns?
+- **Efficiency/Latency**: How fast and resource-efficient is the model?
+- **Generalisation**: Can it perform well on unseen or zero-shot tasks?
+
