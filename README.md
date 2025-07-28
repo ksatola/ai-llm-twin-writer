@@ -1,6 +1,6 @@
 # An AI LLM System Architecture Review
 - [Diagrams source](https://app.diagrams.net/#G1Mrkctv8KoSAEdZxTLnnPQIDzfVgErK5X#%7B%22pageId%22%3A%228B9phikLyFSe8g4D6Oy4%22%7D)
-- [Original repository](https://github.com/PacktPublishing/LLM-Engineers-Handbook)
+- [Original Github repository](https://github.com/PacktPublishing/LLM-Engineers-Handbook)
 
 
 ## AI System Objective
@@ -146,5 +146,6 @@ Actions:
 
 ## AWS Cleaning
 - Detele SageMaker inference endpoint: `poetry poe delete-inference-endpoint`
+- Confirm: `https://eu-central-1.console.aws.amazon.com/sagemaker/home?region=eu-central-1#/endpoints`
 - Remove LLM image(s) from Amazon Elastic Container Registry (ECR): `https://eu-central-1.console.aws.amazon.com/ecr/home?region=eu-central-1`
 
