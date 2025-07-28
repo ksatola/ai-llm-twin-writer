@@ -178,3 +178,8 @@ Training Pipeline
 - Hugging Face (model registry)
 - Unsloth (LLM fine-tunning)
 
+Inference Pipeline
+- AWS SageMaker
+- AWS Elastic Container Registry (ECR)
+- AWS Elastic Cloud Compute (EC2)
+
