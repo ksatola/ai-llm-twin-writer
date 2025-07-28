@@ -147,7 +147,7 @@ Actions:
 
 
 ## AWS Cleaning
-- Detele SageMaker inference endpoint: `poetry poe delete-inference-endpoint`
+- Delete SageMaker inference endpoint: `poetry poe delete-inference-endpoint`
 - Confirm: `https://eu-central-1.console.aws.amazon.com/sagemaker/home?region=eu-central-1#/endpoints`
 - Remove LLM image(s) from Amazon Elastic Container Registry (ECR): `https://eu-central-1.console.aws.amazon.com/ecr/home?region=eu-central-1`
 - Stop any local services: `poetry poe local-docker-infrastructure-down`
@@ -160,7 +160,7 @@ Actions:
 
 ## Technology Stack
 Local Computer (Python 3.11.8)
-- XCode + Devcontainers
+- XCode with Devcontainers
 - Github CLI (Command Line Interface)
 - AWS CLI
 - Docker, Docker Compose
