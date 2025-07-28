@@ -34,6 +34,10 @@ Actions:
 - Import from local json, if etl problems: `poetry poe run-import-data-warehouse-from-json`
 - ZenML: http://127.0.0.1:8237/pipelines/digital_data_etl
 - MongoDB: https://cloud.mongodb.com/v2/6878f520458a0322900a02b4#/clusters/detail/Cluster0
+- Run e2e data pipeline including instruction dataset creation: `poetry poe run-end-to-end-data-pipeline`
+   - ZenML artifacts: `cd /root/.config/zenml/local_stores/854fba10-cd0b-496f-8937-085173b6d6cb/generate_intruction_dataset/instruct_datasets`
+   - Open VSCode: `code .`
+
 
 
 ## RAG Feature Pipeline
@@ -121,13 +125,26 @@ Source:
 - Create IAM user: `llm_engineering/infrastructure/aws/roles/create_sagemaker_role.py`
 - Create IAM role: `llm_engineering/infrastructure/aws/roles/create_execution_role.py`
 - Deploy the LLM Twin model to AWS SageMaker: `llm_engineering/infrastructure/aws/deploy/huggingface/run.py`
+- Test call to SageMaker inference endpoint: `llm_engineering/model/inference/test.py`
+- Inference pipeline API: `llm_engineering/infrastructure/inference_pipeline_api.py`
 
 Actions:
-- Configure SageMaker local environment: `poetry install --with aws`
+- Configure AWS local environment: `poetry install --with aws`
 - Configure SageMaker: 
    - Updated access keys: `poetry poe create-sagemaker-role`
    - Get ARN (Amazon Resorce Name): `poetry poe create-sagemaker-execution-role`
    - Configure AWS Command Line Interface (CLI): `aws configure`
    - Deploy the LLM Twin model to AWS SageMaker: `poetry poe deploy-inference-endpoint`
+   - Run inference test: `poetry poe test-sagemaker-endpoint`
+- Build and start business service using FastAPI and Uvicorn: `poetry poe run-inference-ml-service`
+   - Swagger: http://localhost:8000/docs
+   - ReDoc: http://localhost:8000/redoc
+   - OpenAI raw spec: http://localhost:8000/openai.json
+- Call the `/rag` endpoint: `curl -X POST 'http://127.0.0.1:8000/rag' -H 'Content-Type: application/json' -d '{"query": "your_query "}'`
+   - Example: `curl -X POST http://127.0.0.1:8000/rag -H 'Content-Type: application/json' -d '{"query": "Hello! What is FastAPI?"}'`
 
+
+## AWS Cleaning
+- Detele SageMaker inference endpoint: `poetry poe delete-inference-endpoint`
+- Remove LLM image(s) from Amazon Elastic Container Registry (ECR): `https://eu-central-1.console.aws.amazon.com/ecr/home?region=eu-central-1`
 
