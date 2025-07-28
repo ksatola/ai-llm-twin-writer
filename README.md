@@ -26,6 +26,7 @@ The general system architecture is based on the [FTI (Feature-Training-Inference
 Source: 
 - Data input: `configs/end_to_end_data.yaml`
 - Raw data in MongoDB (json formatted): `data/artifacts/raw_documents.json`
+
 Actions:
 - `poetry poe local-infrastructure-up`
 - Drop MongoDB twin db if exists
