@@ -106,3 +106,20 @@ Evaluating Large Language Models (LLMs) is a crucial step in understanding how w
 - **Efficiency/Latency**: How fast and resource-efficient is the model?
 - **Generalisation**: Can it perform well on unseen or zero-shot tasks?
 
+There are different evaluation methods:
+- **Automated**: Summarisation, Translation, Classification, Question Answering, Text Generation, Similarity.
+- **Human**: Helpfulness, Factuality, Clarity, Toxicity, Bias.
+- **Model-based (LLM-as-a-judge)**.
+
+
+## Inference Pipeline
+
+![alt text](/images/ai_llm_inference_pipeline.png)
+
+Source: 
+- LangChain MultiQueryRetriever: https://python.langchain.com/docs/how_to/MultiQueryRetriever/
+
+Actions:
+- XXXXXXXX
+
+
