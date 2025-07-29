@@ -1,4 +1,4 @@
-# An AI LLM System Architecture Review
+# AI LLM System Architecture Review
 - [Diagrams source](https://app.diagrams.net/#G1Mrkctv8KoSAEdZxTLnnPQIDzfVgErK5X#%7B%22pageId%22%3A%228B9phikLyFSe8g4D6Oy4%22%7D)
 - [Original Github repository](https://github.com/PacktPublishing/LLM-Engineers-Handbook)
 
@@ -88,6 +88,7 @@ Source:
    - json: `data/artifacts/preference_datasets.json`
    - Hugging Face: https://huggingface.co/datasets/mlabonne/llmtwin-dpo
 - Fine-tuned LLM: https://huggingface.co/mlabonne/TwinLlama-3.1-8B-DPO
+- LLM Evaluation (Opik): https://www.comet.com/mlabonne/llm-twin-training/view/new/panels
 
 
 ### Fine-tuning
